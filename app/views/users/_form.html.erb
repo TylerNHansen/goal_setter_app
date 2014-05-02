@@ -1,0 +1,15 @@
+<form action="<%= new_user ? users_url : session_url %>" method="post" accept-charset="utf-8">
+  <%= form_auth_html %>
+  <table border="0" cellspacing="5" cellpadding="5">
+    <tr>
+      <td><label for="username">Username</label></td>
+      <td><input type="text" name="user[username]" value="<%= user.username %>" id="username"></td>
+    </tr>
+    <tr>
+      <td><label for="password">Password</label></td>
+      <td><input type="password" name="user[password]" value="" id="password"></td>
+    </tr>
+  </table>
+
+  <p><input type="submit" value="<%= new_user ? "Create User" : "Sign In" %>"></p>
+</form>

@@ -36,7 +36,7 @@ feature 'logging out' do
   it 'does not show username after log out' do
     sign_up('test_user')
     sign_out
-    expect(page).to not_have_content('test_user')
+    expect(page).to_not have_content('test_user')
   end
 
 end

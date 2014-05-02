@@ -53,7 +53,7 @@ def sign_in(username)
   visit new_session_url
   fill_in 'username', with: username
   fill_in 'password', with: 'test_pass'
-  click_on 'Sign In'
+  click_button 'Sign In'
 end
 
 def sign_out
