@@ -16,3 +16,6 @@ Tests
   - test for completed goals
   - test for button to mark goals completed
 
+
+Model Spacs
+  - goals are dependent: :destroy for users

@@ -49,10 +49,10 @@ def sign_up(username)
   click_on 'Create User'
 end
 
-def sign_in(username)
+def sign_in(username, password = 'test_pass')
   visit new_session_url
   fill_in 'username', with: username
-  fill_in 'password', with: 'test_pass'
+  fill_in 'password', with: password
   click_button 'Sign In'
 end
 
@@ -72,7 +72,40 @@ def create_new_goal(
   fill_in 'Title', with: title
   fill_in 'Description', with: descr
   click_button 'Create New Goal'
+  current_path
 end
+
+def create_new_comment_on(word)
+  case word
+  when 'goal'
+    create_new_goal
+  when 'user'
+    sign_up('test_user')
+  end
+  fill_in 'Comment', with: 'test comment please ignore'
+  click_button 'Add Comment'
+  current_path
+end
+
+def comment_with_other_user(word)
+  user1 = User.create(username: 'user1', password: 'password')
+  user2 = User.create(username: 'user2', password: 'password')
+  case word
+  when 'user'
+    comment_path = user_url(user1)
+  when 'goal'
+    goal = Goal.create(user_id: user1.id, title: 'User 1 Goal')
+    comment_path = user_goal_url(user1, goal)
+  end
+  sign_in('user2', 'password')
+  visit comment_path
+  fill_in 'Comment', with: 'test comment please ignore'
+  click_button 'Add Comment'
+  sign_out
+  sign_in('user1', 'password')
+  visit comment_path
+end
+
 
 
 
