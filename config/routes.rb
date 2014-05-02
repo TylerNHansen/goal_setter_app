@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resources :users
-
+  resources :users do
+    resources :goals
+  end
   resource :session
 
 

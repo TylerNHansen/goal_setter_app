@@ -58,5 +58,27 @@ end
 
 def sign_out
   click_button 'Sign Out'
-
 end
+
+def visit_new_goal
+  u = User.create(username: 'author', password: 'password')
+  visit new_user_goal_url(u)
+end
+
+def create_new_goal(
+  title = 'Make a million dollars',
+  descr = 'Step 1. Hire a coder. Step 2. Feed coder. Step 3. Profit')
+  visit_new_goal
+  fill_in 'Title', with: title
+  fill_in 'Description', with: descr
+  click_button 'Create New Goal'
+end
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+GOALS
+
+Goals are like a note or a TODO item-- could have title(string) and description(text)?
+CRUD
+  boolean 'private' - hides goals from other users
+  boolean 'completed'
+  string title - what is shown on goal index
+  text description - shown only in goal show
+
