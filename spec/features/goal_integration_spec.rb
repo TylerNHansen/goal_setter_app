@@ -4,11 +4,8 @@ require 'spec_helper'
 
 feature 'making a goal' do
 
-  before :each do
-    visit_new_goal
-  end
-
   it 'has a new goal page' do
+    visit_new_goal
     expect(page).to have_content 'New Goal'
   end
 

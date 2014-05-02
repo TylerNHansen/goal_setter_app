@@ -7,3 +7,12 @@ CRUD
   string title - what is shown on goal index
   text description - shown only in goal show
 
+  views - list of all goals for a user
+    - list of all goals for current user
+    - view a single goal in detail
+
+
+Tests
+  - test for completed goals
+  - test for button to mark goals completed
+

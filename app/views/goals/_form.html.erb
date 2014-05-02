@@ -1,0 +1,18 @@
+<!-- vars: new_goal boolean, @goal, @user -->
+<form action="<%= new_goal ? user_goals_url(user) : user_goal_url(user, goal) %>"
+   method="post" accept-charset="utf-8">
+  <%= form_auth_html %>
+  <%= update_method_html unless new_goal %>
+
+  <table border="0" cellspacing="5" cellpadding="5">
+    <tr>
+      <td><label for="title">Title</label></td>
+      <td><input type="text" name="goal[title]" value="<%= goal %>" id="title"></td>
+    </tr>
+  </table>
+
+  <p><label for="description">Description</label></p>
+  <textarea name="goal[description]" rows="8" cols="40" id="description"><%= goal.description %></textarea>
+
+  <p><input type="submit" value="<%= new_goal ? "Create New Goal" : "Update Goal" %>"></p>
+</form>

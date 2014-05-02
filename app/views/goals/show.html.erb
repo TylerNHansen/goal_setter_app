@@ -1,0 +1,8 @@
+<h1 id="goal_title"><%= @goal %></h1>
+<p><%= @goal.description %></p>
+<p style='color: red;'><%= @goal.completed? ? "Completed" : "Not Completed" %></p>
+<!-- button to mark goal as completed -->
+<p><%= link_to "Edit Goal", edit_user_goal_url(@user, @goal) %></p>
+<%= button_to "Delete Goal", user_goal_url(@user, @goal), method: :delete %>
+
+<!-- comments for goal -->

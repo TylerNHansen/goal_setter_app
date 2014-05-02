@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :goals
   end
-  resource :session
+  resource :session, only: [:create, :new, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
