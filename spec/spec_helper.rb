@@ -62,6 +62,7 @@ end
 
 def visit_new_goal
   u = User.create(username: 'author', password: 'password')
+  sign_in('author', 'password')
   visit new_user_goal_url(u)
 end
 

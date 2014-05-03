@@ -5,4 +5,12 @@
 <p><%= link_to "Edit Goal", edit_user_goal_url(@user, @goal) %></p>
 <%= button_to "Delete Goal", user_goal_url(@user, @goal), method: :delete %>
 
-<!-- comments for goal -->
+<h3>Comments</h3>
+<% @goal.comments.each do |comment| %>
+  <%= render partial: 'comments/comment', locals: { comment: comment, object: @goal, current_user: current_user } %>
+<% end %>
+<hr>
+<h3>Add a Comment</h3>
+<%= render partial: 'comments/form', locals: { comment: Comment.new, object: @goal } %>
+
+<p><%= link_to "Back to #{@goal.user}", user_url(@goal.user) %></p>

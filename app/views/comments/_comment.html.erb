@@ -1,0 +1,6 @@
+<p>Posted by <%= comment.user %> at <%= comment.created_at %></p>
+<p><%= comment.body %></p>
+<% object_user = object.class == User ? object : object.user %>
+<% if object_user == current_user || comment.user == current_user %>
+<%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+<% end %>

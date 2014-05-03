@@ -13,6 +13,7 @@
 #
 
 class Goal < ActiveRecord::Base
+  include Commentable
   validates :title, :user, presence: true
 
   belongs_to :user

@@ -16,7 +16,15 @@ feature 'comments' do
     it "makes a comment on a #{word}" do
       create_new_comment_on(word)
       expect(page).to have_content('test comment please ignore')
-      expect(page).to have_content('Make a million dollars') # goal
+      # comment is on page
+
+      if current_path.match('goal')
+        expect(page).to have_content('Make a million dollars')
+      elsif current_path.match('user')
+        expect(page).to have_content('test_user')
+      else
+        fail 'Invalid path reached'
+      end
     end
   end
 
