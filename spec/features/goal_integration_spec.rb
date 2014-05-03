@@ -61,3 +61,21 @@ feature 'can delete a goal' do
   end
 
 end
+
+feature 'can mark a goal completed' do
+
+  it 'has a button' do
+    create_new_goal
+    click_link 'Back'
+    click_link 'Goals'
+    expect(page).to have_button('Complete')
+  end
+
+  it 'marks the goal as complete' do
+    create_new_goal
+    click_link 'Back'
+    click_link 'Goals'
+    click_button 'Complete'
+    expect(page).to_not have_button('Complete')
+  end
+end

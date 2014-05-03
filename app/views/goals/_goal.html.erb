@@ -1,2 +1,5 @@
 <h3><%= link_to goal.to_s, user_goal_url(goal.user, goal) %></h3>
 <!-- button to completed? -->
+<% unless goal.completed? %>
+  <%= render partial: 'goals/complete_form', locals: { user: goal.user, goal: goal } %>
+<% end %>

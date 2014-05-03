@@ -1,0 +1,7 @@
+<form action="<%= user_goal_url(user, goal) %>" method="post" accept-charset="utf-8">
+  <%= form_auth_html %>
+  <%= update_method_html %>
+  <input type="hidden" name="goal[completed]" value="true">
+
+  <p><input type="submit" value="Complete"></p>
+</form>
